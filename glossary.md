@@ -25,6 +25,8 @@ Short, neutral definitions of terms used across this list. Terms are grouped by 
 - **Plan-and-execute** — A planner produces a multi-step plan that an executor then carries out.
 - **Recursive decomposition** — Subtasks are split into smaller subtasks until each is directly solvable.
 - **Swarm** — Many lightweight agents coordinate through simple local rules or shared tasks.
+- **Dynamic workflow** — A per-task orchestration script, generated on the fly, that fans out and merges subagents.
+- **Writer-verifier** — One agent produces work while an independent agent checks it before acceptance.
 
 ## Communication and state
 
@@ -35,6 +37,7 @@ Short, neutral definitions of terms used across this list. Terms are grouped by 
 - **Knowledge graph** — A graph of entities and relations used as queryable long-term agent memory.
 - **Mailbox** — A messaging channel that delivers inter-agent messages, used in agent teams.
 - **Task list** — A shared, claimable set of work items that agents coordinate around.
+- **Cross-session messaging** — Direct message exchange between independent agent sessions, possibly on different machines.
 
 ## Protocols and infrastructure
 

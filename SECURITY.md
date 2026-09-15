@@ -6,7 +6,7 @@ For vulnerabilities or concerns specific to entries in this list, open a [GitHub
 
 ## Prompt Injection and Trust Boundaries
 
-- [Mitigate Jailbreaks and Prompt Injections](https://docs.anthropic.com/en/docs/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks) - Anthropic's official guidance on detecting and blocking prompt injection in Claude deployments.
+- [Mitigate Jailbreaks and Prompt Injections](https://platform.claude.com/docs/en/test-and-evaluate/strengthen-guardrails/mitigate-jailbreaks) - Anthropic's official guidance on detecting and blocking prompt injection in Claude deployments.
 - [Not What You've Signed Up For: Compromising Real-World LLM-Integrated Applications with Indirect Prompt Injection Attacks](https://arxiv.org/abs/2302.12173) - First systematic demonstration of indirect prompt injection against real LLM-integrated applications; foundational attack taxonomy (2023).
 - [Prompt Injection](https://simonwillison.net/series/prompt-injection/) - Simon Willison's ongoing series tracking prompt injection attack patterns and defenses; coined the term.
 - [Defeating Prompt Injections by Design](https://arxiv.org/abs/2503.18813) - CaMeL system separates control flow from data flow, providing verifiable prompt injection protection evaluated on AgentDojo (2025).
@@ -16,8 +16,12 @@ For vulnerabilities or concerns specific to entries in this list, open a [GitHub
 
 ## MCP and Orchestration Layer Security
 
-- [MCP Security Best Practices](https://modelcontextprotocol.io/specification/draft/basic/security_best_practices) - Official MCP security specification covering confused deputy, SSRF, session hijacking, token passthrough, and scope minimization.
+- [MCP Security Best Practices](https://modelcontextprotocol.io/docs/2026-07-28/tutorials/security/security_best_practices) - Official MCP security guidance for the 2026-07-28 revision covering confused deputy, SSRF, state-handle hijacking, and mix-up attacks.
+- [Architecture Matters for Multi-Agent Security](https://arxiv.org/abs/2604.23459) - Empirical study of 13 multi-agent architectures showing attack success varies up to 3.8x by design; most configurations are more vulnerable than standalone agents (ICML 2026).
+- [When Child Inherits: Modeling and Exploiting Subagent Spawn in Multi-Agent Networks](https://arxiv.org/abs/2605.08460) - Models how a compromised parent agent propagates malicious state to spawned subagents through memory inheritance and termination authority (2026).
 
 ## Agent System Safety
 
+- [How We Contain Claude Across Products](https://www.anthropic.com/engineering/how-we-contain-claude) - Anthropic's per-product sandbox architectures, including the trust-escalation risk when subagent output is trusted more than raw tool results (2026).
+- [Patterns and Problems in Emerging Multiagent Systems](https://www.anthropic.com/research/multiagent-systems) - Anthropic red-team study showing conformity, spontaneous collusion, and sabotage among interacting Claude agents under conflicting goals (2026).
 - [Trustworthy Agents in Practice](https://www.anthropic.com/research/trustworthy-agents) - Anthropic's five-principle framework for safe agents: human control, value alignment, secure interactions, transparency, and privacy (2026).

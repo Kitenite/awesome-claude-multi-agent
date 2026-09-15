@@ -4,12 +4,14 @@ Multi-agent systems introduce coordination overhead, context fragmentation, and 
 
 ## Honest Counter-Perspectives
 
-- [Don't Build Multi-Agents](https://cognition.ai/blog/dont-build-multi-agents) - Cognition's argument that context isolation failures make multi-agent systems unreliable for code editing tasks (2025).
-- [Multi-Agents: What's Actually Working](https://cognition.ai/blog/multi-agents-working) - Follow-up arguing writes must stay single-threaded; additional agents should contribute intelligence, not independent actions (2026).
+- [Don't Build Multi-Agents](https://cognition.com/blog/dont-build-multi-agents) - Cognition's argument that context isolation failures make multi-agent systems unreliable for code editing tasks (2025).
+- [Multi-Agents: What's Actually Working](https://cognition.com/blog/multi-agents-working) - Follow-up arguing writes must stay single-threaded; additional agents should contribute intelligence, not independent actions (2026).
 
 ## Empirical Failure Mode Research
 
 - [Why Do Multi-Agent LLM Systems Fail?](https://arxiv.org/abs/2503.13657) - Taxonomy of 14 failure modes across system design, inter-agent misalignment, and task verification categories; inter-agent misalignment is the top failure mode (2025).
 - [LLM Multi-Agent Systems: Challenges and Open Problems](https://arxiv.org/abs/2402.03578) - Systematizes unresolved issues in multi-agent LLMs: task allocation, reasoning through debate, layered context, and memory management (2024).
 - [When Single-Agent with Skills Replace Multi-Agent Systems and When They Fail](https://arxiv.org/abs/2601.04748) - Shows single-agent with a skill library matches multi-agent performance at lower cost; identifies a phase-transition scaling limit as library size grows (2026).
+- [Multi-Agent Teams Hold Experts Back](https://arxiv.org/abs/2602.01011) - Self-organizing LLM teams underperform their own strongest member by up to 41%; integrative compromise dilutes expert answers (ICML 2026).
+- [Patterns and Problems in Emerging Multiagent Systems](https://www.anthropic.com/research/multiagent-systems) - Anthropic red-team study documenting coordination failures, homogeneity collapse, and conflict escalation among interacting agents (2026).
 - [Single-agent or Multi-agent Systems? Why Not Both?](https://arxiv.org/abs/2505.18286) - Demonstrates that performance gains from multi-agent over single-agent narrow significantly as underlying model capability improves (2025).
