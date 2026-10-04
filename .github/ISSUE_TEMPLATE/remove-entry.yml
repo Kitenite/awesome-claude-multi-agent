@@ -1,0 +1,32 @@
+name: Remove or fix entry
+description: Report a dead link, an inactive project, an inaccurate description, or an entry that no longer meets the quality bar.
+title: "Remove or fix [Name]"
+labels: ["removal"]
+body:
+  - type: input
+    id: entry
+    attributes:
+      label: Entry
+      description: Name and URL of the entry as it appears in the list.
+    validations:
+      required: true
+  - type: dropdown
+    id: reason
+    attributes:
+      label: Reason
+      options:
+        - Dead link or redirect loop
+        - Archived, or no activity in the last 12 months
+        - Description is inaccurate or out of date
+        - No longer meets the quality bar
+        - Duplicate of another entry
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Evidence
+      description: Archive notices, last commit dates, the new URL, or a corrected description.
+    validations:
+      required: true

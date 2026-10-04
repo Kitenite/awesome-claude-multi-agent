@@ -1,0 +1,84 @@
+name: Add entry
+description: Suggest a project, paper, or resource for the list.
+title: "Add [Name]"
+labels: ["addition"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Read [CONTRIBUTING.md](https://github.com/Yigtwxx/awesome-claude-multi-agent/blob/main/CONTRIBUTING.md) before suggesting an entry. Most suggestions are declined because they have no multi-agent dimension, no documented Claude support, or no recent activity.
+  - type: input
+    id: name
+    attributes:
+      label: Name
+    validations:
+      required: true
+  - type: input
+    id: url
+    attributes:
+      label: URL
+      placeholder: https://github.com/owner/repo
+    validations:
+      required: true
+  - type: dropdown
+    id: section
+    attributes:
+      label: Section
+      options:
+        - Foundational Reading
+        - Multi-Agent Patterns and Architectures
+        - Orchestration Frameworks
+        - Subagent Collections
+        - Starter Templates and Examples
+        - Skills, Hooks, and MCP for Coordination
+        - Memory, State, and Communication
+        - Standards and Protocols
+        - Evaluation and Benchmarks
+        - Datasets and Environments
+        - Observability and Debugging
+        - Security, Safety, and Trust
+        - Research Papers
+        - Case Studies and Production Postmortems
+        - Talks, Courses, and Books
+        - Community
+        - Related Lists
+        - pitfalls.md
+        - security-references.md
+    validations:
+      required: true
+  - type: input
+    id: entry
+    attributes:
+      label: Proposed entry line
+      description: "Format: - [Name](url) - Description. At most 20 words, objective, capital first letter, ending with a period."
+      placeholder: "- [Name](https://example.com) - Description."
+    validations:
+      required: true
+  - type: textarea
+    id: multi-agent
+    attributes:
+      label: Multi-agent dimension
+      description: How does it coordinate multiple agents, and how does it work with Claude? Link to the relevant docs or code.
+    validations:
+      required: true
+  - type: textarea
+    id: affiliation
+    attributes:
+      label: Affiliation
+      description: State whether you maintain, work on, or are paid by the project. Self-submissions are welcome when disclosed.
+      placeholder: None
+    validations:
+      required: true
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: The link resolves and the project is real.
+          required: true
+        - label: The project has meaningful activity in the last 12 months, or it is a paper or primary source.
+          required: true
+        - label: The project is not already in this list.
+          required: true
+        - label: The project has 50 or more GitHub stars, or I explained above why it is unique.
+          required: true
