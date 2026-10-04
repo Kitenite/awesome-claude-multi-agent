@@ -16,7 +16,7 @@ Dead links, inactive projects, and quality concerns are not security issues. Use
 
 ## How to report
 
-Email <yigiterdogan023@gmail.com> with the entry name, the URL, and what you observed. Do not open a public issue for a suspected compromise.
+Use GitHub's [private vulnerability reporting](https://github.com/Yigtwxx/awesome-claude-multi-agent/security/advisories/new), or email <yigiterdogan023@gmail.com>. Include the entry name, the URL, and what you observed. Do not open a public issue for a suspected compromise.
 
 ## What happens next
 
