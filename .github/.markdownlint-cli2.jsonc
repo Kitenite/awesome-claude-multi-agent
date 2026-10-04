@@ -1,8 +1,7 @@
 {
   // Complement awesome-lint (structure) with style enforcement.
-  // Exclude non-published files: project instructions, working notes, and GH templates.
+  // Exclude local working notes and GitHub templates.
   "ignores": [
-    "CLAUDE.md",
     "_workspace/**",
     ".github/**"
   ],
@@ -10,9 +9,9 @@
     "default": true,
     // Long entry descriptions are intentional — do not enforce a line limit.
     "MD013": false,
-    // Allow duplicate headings in different sections (e.g. "References" in multiple companion docs).
+    // Allow repeated headings in different sections.
     "MD024": { "siblings_only": true },
-    // Allow <br> in companion docs; block other inline HTML.
+    // Allow <br>; block other inline HTML.
     "MD033": { "allowed_elements": ["br"] },
     // Bare URLs must be wrapped in angle brackets or linked.
     "MD034": true,
@@ -20,7 +19,7 @@
     "MD040": true,
     // First line of every file must be a top-level heading.
     "MD041": true,
-    // Emphasis used as headings is a false positive in companion docs.
+    // Bold labels inside paragraphs are not headings.
     "MD036": false
   }
 }
