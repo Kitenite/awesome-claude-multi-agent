@@ -1,0 +1,6 @@
+# Repositories exempt from the 12-month activity check in scripts/check-staleness.sh.
+# Only list reference implementations of published papers, which are finished work.
+# One owner/repo per line. Lines starting with # are ignored.
+composable-models/llm_multiagent_debate
+madaan/self-refine
+togethercomputer/MoA
