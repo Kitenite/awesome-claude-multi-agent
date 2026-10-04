@@ -1,0 +1,67 @@
+name: Monthly Audit
+
+on:
+  schedule:
+    - cron: '0 9 1 * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  audit:
+    name: Audit
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Check links
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config ./.github/lychee.toml --no-progress './*.md'
+          output: ./lychee-report.md
+          fail: false
+
+      - name: Check repository activity
+        id: staleness
+        shell: bash
+        run: |
+          set +e
+          sh scripts/check-staleness.sh README.md pitfalls.md security-references.md > staleness-report.tsv
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+          cat staleness-report.tsv
+
+      - name: Open or update tracking issue
+        if: ${{ steps.lychee.outputs.exit_code != '0' || steps.staleness.outputs.exit_code != '0' }}
+        shell: bash
+        run: |
+          MONTH=$(date +%Y-%m)
+          {
+            echo "Automated audit for ${MONTH}. Fix or remove the entries below and open a pull request."
+            echo
+            echo "## Broken links"
+            echo
+            if [ "${{ steps.lychee.outputs.exit_code }}" != "0" ] && [ -f lychee-report.md ]; then
+              cat lychee-report.md
+            else
+              echo "None."
+            fi
+            echo
+            echo "## Archived, inactive, or renamed repositories"
+            echo
+            echo '```text'
+            cat staleness-report.tsv
+            echo '```'
+          } > issue-body.md
+          gh label create stale-links --color B60205 --description "Found by the monthly link and activity audit" --force
+          EXISTING=$(gh issue list --label stale-links --state open --json number --jq '.[0].number // empty')
+          if [ -z "$EXISTING" ]; then
+            gh issue create --title "Monthly audit ${MONTH}" --body-file issue-body.md --label stale-links
+          else
+            gh issue comment "$EXISTING" --body-file issue-body.md
+          fi

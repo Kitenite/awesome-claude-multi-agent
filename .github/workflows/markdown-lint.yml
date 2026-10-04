@@ -6,13 +6,16 @@ on:
       - main
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   markdownlint:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
-          node-version: '20'
+          node-version: lts/*
       - run: npx markdownlint-cli2 --config ./.github/.markdownlint-cli2.jsonc "**/*.md" "#node_modules"
