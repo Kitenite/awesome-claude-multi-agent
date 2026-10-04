@@ -1,5 +1,12 @@
+# Dependencies
 node_modules/
+
+# Local working notes, never published
 _workspace/
 analiz.md
-.claude*
+
+# Local Claude Code settings. CLAUDE.md itself is tracked.
+.claude/
+
+# macOS
 .DS_Store
